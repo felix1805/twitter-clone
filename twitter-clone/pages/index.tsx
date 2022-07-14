@@ -6,14 +6,13 @@ import Feed from "../components/Feed";
 import Widgets from "../components/Widgets";
 import { Tweet } from "../typings";
 import { fetchTweets } from "../utils/fetchTweets";
-import type { GetServerSideProps } from 'next';
+import type { GetServerSideProps } from "next";
 
 interface Props {
-  tweets: Tweet[]
+  tweets: Tweet[];
 }
 
 const Home = ({ tweets }: Props) => {
-
   return (
     <div className="lg:max-w-6xl mx-auto max-h-screen overflow-hidden">
       <Head>
@@ -21,9 +20,9 @@ const Home = ({ tweets }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='grid grid-cols-9'>
+      <main className="grid grid-cols-9">
         <Sidebar />
-        <Feed tweets={tweets} />  
+        <Feed tweets={tweets} />
         <Widgets />
       </main>
     </div>
@@ -33,10 +32,10 @@ const Home = ({ tweets }: Props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-const tweets = await fetchTweets();
+  const tweets = await fetchTweets();
   return {
     props: {
-
-    }
-  }
-}
+      tweets,
+    },
+  };
+};
