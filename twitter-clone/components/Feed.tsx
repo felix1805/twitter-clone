@@ -1,7 +1,7 @@
 import { RefreshIcon } from "@heroicons/react/outline";
 import React from "react";
-import TweetBox from "./TweetBox";
 import { Tweet } from "../typings";
+import TweetBox from "./TweetBox";
 import TweetComponent from "../components/Tweet";
 
 interface Props {
